@@ -10,10 +10,7 @@ class Triangle
 
   def kind
     if triangle_inequality? || side1 <= 0 || side2 <= 0 || side3 <= 0
-      begin
         raise TriangleError
-      rescue TriangleError => error
-          puts error.message
       end
     elsif side1 == side2 && side2 == side3
       :equilateral
@@ -30,7 +27,8 @@ class Triangle
 
   class TriangleError < StandardError
     def message
-      "The sum of the lengths of any two sides of a triangle always exceeds the length of the third side. Further, each side must be larger than 0."
+      "The sum of the lengths of any two sides of a triangle always exceeds the 
+      length of the third side. Further, each side must be larger than 0."
     end
   end
 end
