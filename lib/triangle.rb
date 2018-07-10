@@ -9,14 +9,13 @@ class Triangle
   end
 
   def kind
-    if side1 < 1 || side2 < 1 || side3 < 1
+    if triangle_inequality? || side1 < 1 || side2 < 1 || side3 < 1
       begin
         raise TriangleError
       rescue TriangleError => error
           puts error.message
       end
-
-    if side1 == side2 && side2 == side3
+    elsif side1 == side2 && side2 == side3
       :equilateral
     elsif side1 == side2 || side1 == side3 || side2 == side3
       :isosceles
